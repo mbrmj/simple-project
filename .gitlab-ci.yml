@@ -13,8 +13,15 @@ variables:
 
 stages:
   - build
+  - test
 
 build:
   stage: build
   script:
     - mvn package -DskipTests
+
+
+test:
+  stage: test
+  script:
+    - mvn $MAVEN_CLI_OPTS clean test
